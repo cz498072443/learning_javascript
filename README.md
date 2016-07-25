@@ -1,2 +1,2 @@
 # learning_javascript
-learning_javascript是一个学习js难点的简单教程，其中包含一些浅显易懂的例子
+learning_javascript包含一些浅显易懂的学习js难点的例子
