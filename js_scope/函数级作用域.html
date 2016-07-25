@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Javascript函数级作用域:块(如if语句)不会创建一个新的作用域,只有函数才会创建新的作用域
+</body>
+<script>
+    var x=1;
+    //不会创建新的作用域,所以x会改变
+    if(x){
+        var x=2;
+        console.log(x)
+    }
+    console.log(x);
+
+
+
+    //会创建新的作用域所以Y不会变
+    var test=function(){
+        var y=2;
+        console.log(y)
+    }
+    var y=1;
+    if(y){
+        test();
+    }
+    console.log(y);
+
+</script>
+</html>
