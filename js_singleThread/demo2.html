@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //先输出100个first print再输出100个second print
+
+    function test(){
+        console.log("first print");
+
+        //异步事件setTimeout会在0秒后将console.log("second print")事件放在事件队列中,但是注意至少是放在100个console.log("first print")同步事件之后,
+        //无论100个同步事件执行多久
+        setTimeout(function(){
+            console.log("second print");
+        },0);
+    }
+
+    for(var i=0;i<100;i++){
+        test();
+    }
+</script>
+</html>
