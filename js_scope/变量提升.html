@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //输出undefind,因为函数会创建新的作用域,如果没有var x的话就会从父级作用域里面找x,但是此处有var x且在后面声明,就会引起变量提升,如下面这段代码
+    (function(){
+        alert(x);
+        var x="输出undefined";
+    })()
+
+    //以下代码为变量提升后的代码,等同于上一段代码,变量提升只会提升声明不会提升赋值
+    (function(){
+        var x;
+        alert(x);
+        x="输出undefined";
+    })()
+
+//------------------暴力分割线---------------------
+
+    //函数提升,解释函数表达式为什么要在调用之前
+
+    //以下代码不会执行,因为js解析器只会把var testFunction提升,因此在使用函数表达式时要注意将其放在调用之前
+    testction();
+
+    var testFunction=function(){
+        alert("不会输出")
+    }
+
+
+</script>
+
+</html>
