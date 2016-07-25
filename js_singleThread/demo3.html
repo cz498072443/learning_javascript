@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //不会有任何输出
+
+    var n = true;
+
+    //异步事件setTimeout会在1s后往同步事件之后的事件队列中添加n=false的事件
+    setTimeout(function (){
+        n = false;
+    },1000);
+
+    //由于n=true,同步事件运行至此陷入死循环,异步事件将永远不会被执行
+    while (n){}
+
+    //由于JS是单线程的,所以在while同步事件执行完毕前不会往下执行,而while为死循环因此alert('end')也不会被执行
+    alert('end');
+</script>
+
+</html>
