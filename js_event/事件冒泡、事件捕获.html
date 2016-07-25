@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .container{
+            height: 500px;
+            width: 500px;
+            background-color: blueviolet;
+        }
+        .inner{
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+        }
+        strong{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="inner">
+        <strong>点击</strong>
+    </div>
+</div>
+<script>
+    /*
+        事件捕获：事件从document对象开始往下级标签查找，直到捕获到事件目标
+        事件冒泡：事件从事件目标开始，往上级标签冒泡直到document对象
+    */
+
+    window.onload=function() {
+        var loadFun = (function () {
+            var trigger1 = function () {
+                alert("I am container");
+            }
+            var trigger2 = function () {
+                alert("I am inner");
+            }
+            var trigger3 = function () {
+                alert("I am strong");
+            }
+            return {
+                trigger1: trigger1,
+                trigger2: trigger2,
+                trigger3: trigger3
+            }
+        })()
+
+        //W3C绑定事件函数addEventListener默认第三个参数为false，即事件冒泡
+        //事件触发顺序trigger3->trigger2->trigger1
+        var loadPage1=(function(){
+            document.getElementsByClassName("container")[0].addEventListener("click",loadFun.trigger1);
+            document.getElementsByClassName("inner")[0].addEventListener("click",loadFun.trigger2);
+            document.getElementsByTagName("strong")[0].addEventListener("click",loadFun.trigger3);
+        })()
+
+        //-------------------------粗暴分隔线-----------------------------
+        //当addEventListener第三个参数为true，为事件捕获
+        //事件触发顺序trigger1->trigger2->trigger3
+        var loadPage2=(function(){
+            document.getElementsByClassName("container")[0].addEventListener("click",loadFun.trigger1,true);
+            document.getElementsByClassName("inner")[0].addEventListener("click",loadFun.trigger2,true);
+            document.getElementsByTagName("strong")[0].addEventListener("click",loadFun.trigger3,true);
+        })()
+
+        //-------------------------粗暴分隔线-----------------------------
+        //W3C处理事件顺序为，先事件捕获再事件冒泡，因此会先处理完设置为事件捕获的事件函数再执行设置为事件冒泡的事件函数
+        //事件触发顺序trigger2->trigger3->trigger1
+        var loadPage3 = (function () {
+            document.getElementsByClassName("container")[0].addEventListener("click", loadFun.trigger1, false);
+            document.getElementsByClassName("inner")[0].addEventListener("click", loadFun.trigger2, true);
+            document.getElementsByTagName("strong")[0].addEventListener("click", loadFun.trigger3, true);
+        })()
+    }
+</script>
+</body>
+</html>
