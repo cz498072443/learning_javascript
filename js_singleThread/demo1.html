@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //第一次输出0,第二次输出1
+    //setTimeout为异步事件,在50ms后将该异步事件放入事件队列中等待处理,当同步事件处理完毕后才会执行
+    var s=0
+    setTimeout(function(){
+        alert(s)
+    },50);
+
+    alert(s);
+    s++;
+
+//---------------------粗暴的分割线------------------------
+    //第一次输出0,第二次输出1
+    //setTimeout为异步事件,在0ms后将该异步事件放入事件队列中等待处理,当同步事件处理完毕后才会执行
+    var s=0
+    setTimeout(function(){
+        alert(s)
+    },0);
+
+    alert(s);
+    s++;
+</script>
+</html>
