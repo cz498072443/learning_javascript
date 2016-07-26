@@ -6,3 +6,6 @@ js作用域
 
 # js_sigleThread
 js单线程
+
+# js_event
+js事件
