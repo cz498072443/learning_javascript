@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+call()实现继承<br>
+call():调用一个对象的一个方法,以另一个对象替换当前对象
+</body>
+<script>
+    function parent(name,age){
+        this.name=name;
+        this.age=age;
+        this.print=function(){
+            alert(this.name+" is "+this.age);
+        }
+    }
+
+    function child(name,age){
+        parent.call(this,name,age);     //通过call()将child对象替换成parent对象,从而使child能够拥有parent的所有属性和方法
+    }
+
+    var father=new parent("wang",40);
+    father.print();
+
+    var chen=new child("chenz",21);
+    chen.print();
+</script>
+</html>

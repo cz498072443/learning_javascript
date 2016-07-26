@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+通过让父类的构造函数成为子类的方法以继承
+</body>
+<script>
+    function parent(name,age){
+        this.peoname=name || "wang";
+        this.peoage=age || 40;
+        this.print=function(){
+            alert(this.peoname+" is "+this.peoage);
+        }
+    }
+
+    function child(name,age){
+        this.parent=parent;     //父类构造函数parent变为子类parent方法
+        this.parent(name,age);      //调用子类方法并传入参数(传入参数到父类构造函数中)
+        this.ask=function(){
+            this.print();
+        }
+    }
+
+    var wang=new parent("wang",40);
+    wang.print();
+
+    var chen=new child("chenz",21);
+    chen.ask();
+</script>
+</html>

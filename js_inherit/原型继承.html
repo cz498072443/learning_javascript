@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+原型继承
+</body>
+<script>
+    function parent(name){
+        this.name= name || 'chen';
+    }
+    parent.prototype.call=function(){
+        alert(this.name);
+    }
+
+
+    function child(age){
+        this.age=age;
+    }
+    child.prototype=new parent()           //child.prototype._proto_=>parent.prototype
+    child.prototype.ask=function(){
+        alert(this.age);
+    }
+
+
+
+    var chen=new child(12);
+    var father=new parent("wang");
+
+    father.call();
+
+    chen.ask();                            //chen._proto_=>child.prototype
+    chen.call();                           //chen._proto_=>child.prototype     child.prototype._proto_=>parent.prototype
+</script>
+</html>
