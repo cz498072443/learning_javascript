@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+组合继承通过组合类式继承和原型继承，解决了原型继承不能给父类传递参数的问题，同时也解决了类式继承没有原型的问题
+</body>
+<script>
+    function parent(name,age){
+        this.peoname=name || "wang";
+        this.peoage=age || 40;
+    }
+    parent.prototype.print=function(){
+        alert(this.peoname+" is "+this.peoage);
+    }
+
+    function child(name,age){
+        parent.call(this,name,age);
+    }
+    child.prototype=new parent();
+
+    var chen=new child("chenz",21);
+    chen.print();
+
+</script>
+</html>
