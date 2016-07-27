@@ -16,9 +16,12 @@ call():调用一个对象的一个方法,以另一个对象替换当前对象
             alert(this.name+" is "+this.age);
         }
     }
+    parent.prototype.test=function(){
+        alert("这条信息不能输出")
+    }
 
     function child(name,age){
-        parent.call(this,name,age);     //通过call()将child对象替换成parent对象,从而使child能够拥有parent的所有属性和方法
+        parent.call(this,name,age);     //通过call()在子类型内调动父类型的构造函数,从而使child能够拥有parent的所有属性和方法
     }
 
     var father=new parent("wang",40);
@@ -26,5 +29,6 @@ call():调用一个对象的一个方法,以另一个对象替换当前对象
 
     var chen=new child("chenz",21);
     chen.print();
+    //chen.test();                      //构造继承存在的问题，不能继承父类型的原型中定义的方法,只能调用构造函数中的属性和方法
 </script>
 </html>
