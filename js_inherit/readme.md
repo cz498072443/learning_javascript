@@ -45,14 +45,16 @@ parent.prototype.name="chen";
 var child = new parent();
 console.log(child.hasOwnProperty("age"))    //true   该属性是child继承父类型构造函数的属性
 console.log(child.hasOwnPrototype("name"))  //false  该属性是从父类型原型对象继承来的
-child.name="tan";                           //通过重写屏蔽原属性name，此时这个name就成了实例真正的属性
-console.log(child.hasOwnPrototype("name"))  //true  是child实例真正有的属性 <br>
+child.name="tan";                           //通过重写屏蔽了原来的属性name，此时这个name就成了实例真正的属性
+console.log(child.hasOwnPrototype("name"))  //true  是child实例真正有的属性 
+<br>
 判断实例中的某个属性是否是来自本地属性还是继承自其父类型的原型对象的属性
 
 ##in
 例:
 console.log("age" in child)    //true  该属性是child的属性
-console.log("name" in child)   //true  该属性是child的属性<br>
+console.log("name" in child)   //true  该属性是child的属性
+<br>
 判断某个属性是否是属于实例对象，无论是来自本地属性还是继承自其父类型的原型对象的属性
 
 
