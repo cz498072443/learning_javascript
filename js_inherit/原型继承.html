@@ -20,7 +20,7 @@
         this.age=age;
     }
     child.prototype=new parent()           //child.prototype._proto_=>parent.prototype
-    child.prototype.ask=function(){
+    child.prototype.ask=function(){        //定义子类方法，要在继承之后定义，否则会使指针发生变化指向父类的实例
         alert(this.age);
     }
 
