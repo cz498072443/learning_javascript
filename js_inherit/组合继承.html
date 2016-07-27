@@ -17,9 +17,9 @@
     }
 
     function child(name,age){
-        parent.call(this,name,age);
+        parent.call(this,name,age);                //第二次调用父类型构造函数
     }
-    child.prototype=new parent();
+    child.prototype=new parent();                  //第一次调用父类型构造函数
 
     var chen=new child("chenz",21);
     chen.print();
