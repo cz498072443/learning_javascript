@@ -26,7 +26,7 @@
 
 
 
-    var chen=new child(12);
+    var chen=new child(12);                //原型继承中存在的问题，创建子类的实例时不能向父类型传递参数
     var father=new parent("wang");
 
     father.call();
