@@ -54,7 +54,7 @@ console.log(child.hasOwnPrototype("name"))  //true  是child实例真正有的�
 <br>
 判断实例中的某个属性是否是来自本地属性还是继承自其父类型的原型对象的属性
 
-##in
+###in
 例:<br> 
 console.log("age" in child)    //true  该属性是child的属性<br> 
 console.log("name" in child)   //true  该属性是child的属性<br> 
