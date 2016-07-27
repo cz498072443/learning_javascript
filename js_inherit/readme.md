@@ -7,13 +7,18 @@
 缺陷:1.子类型无法向父类型传递参数
 
 #tips
-typeof                  例:typeof(1)==number  //true     
+typeof                  
+例:typeof(1)==number  //true     
 判断变量是否为空或者是什么类型的
 
-instanceof              例:var child = new parent()    child instanceof parent //true  
+instanceof              
+例:var child = new parent()    
+child instanceof parent //true  
 判断child是否是parent的实例 
 
-isPrototypeOf           例:var child = new parent()   parent.prototype.isPrototypeOf(child) //true 
+isPrototypeOf           
+例:var child = new parent()   
+parent.prototype.isPrototypeOf(child) //true 
 判断parent.prototype是否出现在child 的原型链中
 
 getPrototypeOf        
