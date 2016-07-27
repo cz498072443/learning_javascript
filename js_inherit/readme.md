@@ -1,10 +1,12 @@
 #1.构造继承
-利用call()或apply()在子类型构造函数中运行父类型构造函数以达到继承目的
+利用call()或apply()在子类型构造函数中运行父类型构造函数以达到继承目的<br>
 缺陷:无法继承原型属性和方法，没有原型无法复用
 
 #2.原型继承
-利用原型链原理将子类型原型指向父类型实例实现继承
-缺陷:1.子类型无法向父类型传递参数
+利用原型链原理将子类型原型指向父类型实例实现继承<br>
+缺陷:<br>
+1.创建子类型实例时无法向父类型传递参数<br>
+2.重写子类的原型等于父类的一个实例，如果父类包含引用类型的属性，那么子类所有实例都会共享该属性(这句话来自http://blog.csdn.net/xuqinggangsls/article/details/51490390)
 
 #tips
 ###typeof                  
@@ -18,8 +20,8 @@ child instanceof parent //true<br>
 
 ###isPrototypeOf           
 例:var child = new parent()   
-parent.prototype.isPrototypeOf(child) //true <br> 
-判断parent.prototype是否出现在child 的原型链中
+parent.prototype.isPrototypeOf(child) //true  
+判断parent.prototype是否出现在child的原型链中
 
 ###getPrototypeOf        
 例:
