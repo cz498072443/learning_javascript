@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+寄生继承,省略了指定子类型原型时调用父类型的构造函数
+</body>
+<script>
+    function object(o){                            //传入父类原型对象,返回一个父类原型对象的复制品
+        function F(){}
+        F.prototype=o;
+        return new F();                            //返回的F()实例对象拥有父类型的所有原型链上的属性 ,而且修改该实例的属性不会影响到父类的prototype属性
+    }
+
+    function inheritPrototype(subType,superType){
+        var prototype=object(superType.prototype);
+        prototype.constructor=subType;            //修正constructor指向
+        subType.prototype=prototype;              //将父类prototype属性复制到子类prototype上了
+    }
+
+    function parent(name){
+        this.fathername=name;
+        this.age=21;
+    }
+
+    parent.prototype.print=function(){
+        alert(this.fathername+" is "+this.age);
+    }
+
+    function child(name){
+        parent.call(this,name);
+    }
+
+    inheritPrototype(child,parent);
+
+    var chen=new child("chen");
+    chen.print();
+</script>
+</html>
