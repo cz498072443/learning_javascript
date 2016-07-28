@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <button class="btns">输出0</button>
+    <button class="btns">输出1</button>
+    <button class="btns">输出2</button>
+    <button class="btns">输出3</button>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        //此段代码使得每一个按钮输出都是i.length,原因是onclick的回调函数只有在网页加载后点击按钮时才会触发
+        //而当回调函数触发时,其当前作用域并没有i,于是沿着作用域链往上一级寻找,在for循环块中找到了,但是此时的i已经是经历过循环后值为i.length的i了
+
+        for(var i=0;i<3;i++){
+            document.getElementsByClassName("btns")[i].onclick=function(){
+                alert(i);
+            }
+        }
+
+----------------------------------粗暴分割线----------------------------------
+
+        //此段代码和上一段一样,较为直观
+        for(var i=0;i<3;i++){
+            document.getElementsByClassName("btns")[i].onclick=myfun;
+
+            function myfun(){
+                alert(i);
+            }
+        }
+
+----------------------------------粗暴分割线----------------------------------
+
+        //此段代码将参数i传入了回调函数中,并且该回调函数返回了一个匿名函数的引用,使得绑定onclick的时候并不会直接执行alert,
+        //而且绑定onclick时传入的参数会在myfun作用域中得到保留,当执行alert(i)时能够在myfun的作用域中找到i
+        for(var i=0;i<3;i++){
+            document.getElementsByClassName("btns")[i].onclick=myfun(i);
+
+            function myfun(i){
+                return function (){
+                    alert(i);
+                }
+
+            }
+        }
+
+----------------------------------粗暴分割线----------------------------------
+
+        //此段代码将参数i传入了myfun中并在其作用域中得到保留,使执行alert时能够在myfun中找到n的值,因此这段代码也能成功执行
+        for(var i=0;i<3;i++){
+            myfun(i);
+            function myfun(n){
+                document.getElementsByClassName("btns")[n].onclick=function(){
+                    alert(n)
+                }
+            }
+        }
+
+
+    }
+</script>
+</html>
