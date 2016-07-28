@@ -13,7 +13,7 @@
 缺陷:<br>
 在创建子类型原型和子类型构造函数时都分别调用了父类型构造函数
 
-#tips
+#\#tips
 ###typeof                  
 例:<br>
 typeof(1)==number  //true
