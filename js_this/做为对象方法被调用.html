@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+当函数作为对象方法被调用时，this指向该对象
+</body>
+<script>
+    var x=3;                 //声明全局变量x=3
+
+    function test(){
+        console.log(this.x);
+    }
+
+    var obj={
+        x:1,
+        test:test
+    }
+
+    obj.test();              //控制台输出1，此处函数test作为对象方法被调用，因此this指向该对象，即obj
+</script>
+</html>

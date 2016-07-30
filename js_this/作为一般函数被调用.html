@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+函数直接被调用时，里面的this指向全局对象，this.x指全局变量x
+</body>
+<script>
+    var x=1;                 //声明全局变量x
+    function test(){
+        var x=2;             //在函数的作用域中声明局部变量
+        console.log(this.x)  //控制台输出1，this指向全局对象
+    }
+    test();
+</script>
+</html>
