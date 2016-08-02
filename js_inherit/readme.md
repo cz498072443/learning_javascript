@@ -19,9 +19,9 @@
 #\#tips
 ###typeof                  
 例:<br>
-typeof(1)==number  //true
-
-判断变量是否为空或者是什么类型的
+typeof(1)==number  //true<br>
+判断变量是否为空或者是什么类型的<br>
+ps:用if(typeof(a)===undefind)比if(!a)好，因为当a未声明时前者并不会抛出异常<br>
 
 ###instanceof              
 例:<br> 
