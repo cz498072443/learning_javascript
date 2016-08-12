@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//-----------------------------原始值转原始值-粗暴的分割线-------------------------------
+    //转string
+    alert(123);              //alert()自动将123转为"123"
+    ""+123;                  //"123"
+    "1"+234;                 //将234转换为"234"后再与"1"相加
+    string(123);             //"123"
+    string(null);            //"null"
+    string(true);            //"true"
+    string(undefined);       //"undefined"
+
+    //转number
+    Number(undefined);       //NaN
+    Number("123");           //123
+    Number("abc");           //NaN
+    Number(null);            //+0
+    Number(true);            //1
+    Number(false);           //0
+    Number(NaN);             //NaN
+
+    //转boolean
+    !!x;                     //!!相当于Boolean(),x为undefined所以为false
+    !!undefined;             //false,undefined转bollean为false
+    !!NaN;                   //false,NaN转bollean为false
+    !!0;                     //false,+-0转bollean为false
+    !!'';                    //false,空字符串转bollean为false
+    !!123;                   //true,除了上面那些其他全为true
+    !!"abc";                 //true
+</script>
+</html>
