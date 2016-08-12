@@ -1,8 +1,7 @@
 观点来源 http://justjavac.com/javascript/2012/12/20/object-plus-object.html
 
 #原始值转原始值
-(1)转数字参考观点来源中的ToNumber()<br>
-(ps:补充一点当string不能成功转数字时则返回NaN),转字符串参考观点来源中的ToString()<br>
+(1)转数字参考观点来源中的ToNumber()(ps:补充一点当string不能成功转数字时则返回NaN),转字符串参考观点来源中的ToString()<br>
 (2)转boolean:'',+-0,NaN转换为false<br>
 
 #原始值转对象
